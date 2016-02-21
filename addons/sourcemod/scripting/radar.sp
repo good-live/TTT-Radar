@@ -56,7 +56,7 @@ public void Reset()
 {
 	LoopValidClients(i){
 		g_bHasRadar[i] = false;
-		g_bHasRadar[i] = false;
+		g_bHasJammer[i] = false;
 	}
 }
 
