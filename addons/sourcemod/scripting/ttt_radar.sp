@@ -3,7 +3,7 @@
 #define DEBUG
 
 #define PLUGIN_AUTHOR "good_live"
-#define PLUGIN_VERSION "1.00"
+#define PLUGIN_VERSION "1.01"
 
 #include <sourcemod>
 #include <sdktools>
@@ -271,4 +271,4 @@ public Action checkPlayers(Handle timer, any data)
 	}
 	
 	return Plugin_Continue;
-} 
+}
