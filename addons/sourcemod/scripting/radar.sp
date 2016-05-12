@@ -8,7 +8,6 @@
 #include <sourcemod>
 #include <sdktools>
 #include <ttt>
-#include <ttt_shop>
 #include <cstrike>
 
 
@@ -96,9 +95,6 @@ public Action TTT_OnItemPurchased(int client, const char[] itemshort)
 		if(strcmp(itemshort, "radar", false) == 0)
 		{
 			g_bHasRadar[client] = true;
-			char log[MAX_NAME_LENGTH + 128];
-			Format(log, sizeof(log), "%N bought a Radar", client);
-			TTT_LogString(log);
 		}
 		else if(strcmp(itemshort, "jammer", false) == 0)
 		{
