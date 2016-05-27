@@ -27,16 +27,20 @@ bool g_bHasJammer[MAXPLAYERS + 1] = { false, ... };
 
 ConVar g_cRadar_price;
 ConVar g_cRadar_name;
+ConVar g_cRadar_prio;
 ConVar g_cJammer_price;
 ConVar g_cJammer_name;
+ConVar g_cJammer_prio;
 public void OnPluginStart()
 {
 	TTT_IsGameCSGO();
 	
 	g_cRadar_price = CreateConVar("ttt_radar_price", "6000", "The Price of the radar");
 	g_cRadar_name = CreateConVar("ttt_radar_name", "Radar","The name of the radar in the shop");
+	g_cRadar_prio = CreateConVar("ttt_radar_prio", "100", "Priority for the radar (High prio = at the beginning of the menu");
 	g_cJammer_price = CreateConVar("ttt_jammer_price", "6000", "The Price of the jammer");
 	g_cJammer_name = CreateConVar("ttt_jammer_name", "Jammer","The name of the jammer in the shop");
+	g_cJammer_prio = CreateConVar("ttt_jammer_prio", "100", "Priority for the jammer (High prio = at the beginning of the menu");
 	
 	CreateTimer(1.0, checkPlayers, _, TIMER_REPEAT);
 	LoadTranslations("ttt.phrases");
@@ -49,8 +53,8 @@ public void OnAllPluginsLoaded()
 	char sRName[64];
 	g_cJammer_name.GetString(sJName, sizeof(sJName));
 	g_cRadar_name.GetString(sRName, sizeof(sRName));
-	TTT_RegisterCustomItem("jammer", sJName, g_cRadar_price.IntValue, TTT_TEAM_DETECTIVE);
-	TTT_RegisterCustomItem("radar", sRName, g_cJammer_price.IntValue, TTT_TEAM_TRAITOR);
+	TTT_RegisterCustomItem("jammer", sJName, g_cRadar_price.IntValue, TTT_TEAM_DETECTIVE, g_cRadar_prio.IntValue);
+	TTT_RegisterCustomItem("radar", sRName, g_cJammer_price.IntValue, TTT_TEAM_TRAITOR, g_cJammer_prio.IntValue);
 }
 
 public void Reset()
