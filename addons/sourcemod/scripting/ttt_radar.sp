@@ -132,7 +132,7 @@ public Action checkPlayers(Handle timer, any data)
 	for (int client = 1; client <= MaxClients; client++)
 	{
 		// Valid client?
-		if (g_bHasRadar[client] && IsPlayerAlive(client))
+		if (g_bHasRadar[client] && IsClientInGame(client) && IsPlayerAlive(client))
 		{
 			
 			nearest = 0;
