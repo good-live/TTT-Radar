@@ -53,6 +53,10 @@ public void OnAllPluginsLoaded()
 	char sRName[64];
 	g_cJammer_name.GetString(sJName, sizeof(sJName));
 	g_cRadar_name.GetString(sRName, sizeof(sRName));
+}
+
+public void OnConfigsExecuted()
+{
 	TTT_RegisterCustomItem("jammer", sJName, g_cJammer_price.IntValue, TTT_TEAM_DETECTIVE, g_cJammer_prio.IntValue);
 	TTT_RegisterCustomItem("radar", sRName, g_cRadar_price.IntValue, TTT_TEAM_TRAITOR, g_cRadar_prio.IntValue);
 }
